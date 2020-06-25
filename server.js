@@ -36,6 +36,10 @@ app.use('/pdfs', express.static('pdfs'));
 app.use('/api', userRoute)
 app.use('/business', businessRoute);
 
-const server = app.listen(3000,()=> {
-    console.log("Server is running on port 3000")
-})
+app.use(errorHandler);
+
+// start server
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 3000;
+const server = app.listen(port, function () {
+    console.log('Server listening on port ' + port);
+});
