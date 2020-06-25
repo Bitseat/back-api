@@ -1,9 +1,11 @@
+require('rootpath')();
 const express = require('express'),
       cors = require('cors'),
       path= require('path'),
       bodyParser= require('body-parser'),
       mongoose= require('mongoose'),
       config = require('./DB');
+      errorHandler = require('_helpers/error-handler');
       businessRoute = require('./routes/business-route');
 
       mongoose.connect(config.DB,{useNewUrlParser:true}).then(() => {
