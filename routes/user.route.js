@@ -8,7 +8,6 @@ const DIR = './resumes/';
 const path = require('path');
 //const {spawn} = require('child_process');
 var fs = require('fs');
-const fse = require('fs-extra')
 //var spawn = require('child-process-promise').spawn;
 //var exec = require('child-process-promise').exec;
 const util = require('util');

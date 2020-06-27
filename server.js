@@ -1,11 +1,9 @@
-require('rootpath')();
 const express = require('express'),
       cors = require('cors'),
       path= require('path'),
       bodyParser= require('body-parser'),
       mongoose= require('mongoose'),
       config = require('./DB');
-      errorHandler = require('_helpers/error-handler');
       businessRoute = require('./routes/business-route');
 
       mongoose.connect(config.DB,{useNewUrlParser:true}).then(() => {
@@ -36,12 +34,12 @@ app.use('/pdfs', express.static('pdfs'));
 
 // API Route
 app.use('/api', userRoute)
-app.use('/business', businessRoute);
+app.use('/api/business', businessRoute);
 
-app.use(errorHandler);
+// app.use(errorHandler);
 
 // start server
-const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 3000;
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 5000;
 const server = app.listen(port, function () {
     console.log('Server listening on port ' + port);
 });
